@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
-export async function GET() {
+import { NextResponse } from "next/server";
+export async function GET(req) {
   const redirectTo = "/";
-  return redirect(redirectTo);
+  return NextResponse.redirect(new URL("/", req.url));
 }
